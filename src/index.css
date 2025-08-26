@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	--background: oklch(30 0 0);
+	--foreground: oklch(0.145 0 0);
+	--bg-accent: #ffe8f0;
+}
+
+@theme inline {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-accent: var(--bg-accent);
+}
+
+@layer base {
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		@apply bg-background text-foreground;
+		margin: 0;
+		min-width: 320px;
+		min-height: 100vh;
+		padding: 12px;
+	}
+}
+
+@layer components {
+	.input-field {
+		@apply border-2 px-1 py-1.5 rounded-lg text-neutral-900 text-lg font-medium border-gray-300 bg-neutral-100 focus:bg-indigo-100 text-center focus:outline-none focus:border-indigo-400;
+	}
+	.btn-submit {
+		@apply px-9 py-3 border-none text-white rounded-3xl text-base cursor-pointer;
+		background: linear-gradient(45deg, #667eea, #764ba2);
+		transition: transform 0.2s, box-shadow 0.2s;
+	}
+	.btn-submit:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+	}
+
+	.app-heading {
+		@apply text-5xl w-fit mx-auto bg-gradient-to-r from-emerald-500 via-amber-500 to-rose-500 bg-clip-text text-transparent font-bold  m-5 p-5 max-sm:text-4xl max-sm:mt-3 max-sm:mb-3 max-sm:p-3;
+	}
+}
