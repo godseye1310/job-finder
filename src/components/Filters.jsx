@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const Filters = () => {
+const Filters = ({ setFilters }) => {
+	const [debouncedInput, setDebouncedInput] = useState("");
+
+	useEffect(() => {
+		let timeID = setTimeout(() => {
+			setFilters((prev) => ({ ...prev, search: debouncedInput }));
+		}, 1000);
+
+		return () => {
+			clearTimeout(timeID);
+		};
+	}, [debouncedInput, setFilters]);
+
 	return (
 		<div className="mb-10">
 			<label htmlFor="search">Search Job :</label>
@@ -9,6 +21,7 @@ const Filters = () => {
 				type="text"
 				id="search"
 				name="search"
+				onChange={(e) => setDebouncedInput(e.target.value)}
 			/>
 		</div>
 	);

@@ -4,10 +4,28 @@ import JobsPannel from "./components/JobsPannel";
 import MapView from "./components/MapView";
 
 function App() {
-	const [jobs, setJobs] = useState(companies); // all jobs
-	const [filters, setFilters] = useState({ state: "", industry: "" });
+	const jobs = companies;
+	const [filters, setFilters] = useState({
+		search: "",
+		state: "",
+		industry: "",
+	});
 	const [selectedJob, setSelectedJob] = useState(null);
 	const [contactedJobs, setContactedJobs] = useState([]);
+
+	console.log(filters.search);
+
+	const filteredJobs = jobs.filter((job) => {
+		return (
+			job.state
+				.toLowerCase()
+				.includes(filters.search.toLowerCase().trim()) ||
+			job.industry
+				.toLowerCase()
+				.includes(filters.search.toLowerCase().trim())
+		);
+	});
+
 	return (
 		<>
 			<div className="text-center">
@@ -19,7 +37,7 @@ function App() {
 			<div className="mt-10 flex justify-center gap-5">
 				<section className="w-1/2">
 					<JobsPannel
-						jobs={jobs}
+						jobs={filteredJobs}
 						filters={filters}
 						setFilters={setFilters}
 						selectedJob={selectedJob}
@@ -30,7 +48,7 @@ function App() {
 				</section>
 
 				<section className="w-1/2">
-					<MapView />
+					<MapView jobs={filteredJobs} selectedJob={selectedJob} />
 				</section>
 			</div>
 		</>
