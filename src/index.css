@@ -31,13 +31,19 @@
 		margin: 0;
 		min-width: 320px;
 		min-height: 100vh;
-		padding: 12px;
+		@apply bg-gray-100;
+		/* padding: 12px; */
+	}
+
+	#root {
+		/* max-width: 1440px; */
+		margin: 0 auto;
 	}
 }
 
 @layer components {
 	.input-field {
-		@apply border-2 px-1 py-1.5 rounded-lg text-neutral-900 text-lg font-medium border-gray-300 bg-neutral-100 focus:bg-indigo-100 text-center focus:outline-none focus:border-indigo-400;
+		@apply border-2 px-3 py-1.5 rounded-lg text-neutral-900 text-lg font-medium border-gray-300 bg-neutral-100 focus:bg-indigo-100 text-start focus:outline-none focus:border-indigo-400;
 	}
 	.cbtn {
 		@apply px-6 py-2 w-fit border-none text-white rounded-xl text-base cursor-pointer bg-gradient-to-l from-indigo-500 to-indigo-500;

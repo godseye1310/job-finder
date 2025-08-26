@@ -14,7 +14,7 @@ const JobCard = ({ company, setSelectedJob, appliedJobs, setAppliedJobs }) => {
 
 	return (
 		<li
-			className={`my-1 border border-indigo-600 rounded-sm p-3 ${
+			className={`my-1 max-w-[600px] border border-indigo-600 rounded-sm p-3 ${
 				isApplied ? "bg-green-200" : ""
 			}`}
 			onClick={() => setSelectedJob(company)}

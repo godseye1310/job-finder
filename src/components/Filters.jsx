@@ -14,11 +14,17 @@ const Filters = ({ setFilters }) => {
 	}, [debouncedInput, setFilters]);
 
 	return (
-		<div className="mb-10">
-			<label htmlFor="search">Search Job :</label>
+		<div className="pt-8 pb-2 w-full flex justify-center">
+			<label
+				className="font-semibold text-lg text-neutral-600 hidden"
+				htmlFor="search"
+			>
+				Find Jobs{" "}
+			</label>
 			<input
-				className="p-2 bg-sky-50 rounded-3xl"
+				className="input-field mx-auto"
 				type="text"
+				placeholder="Type State / Industry"
 				id="search"
 				name="search"
 				onChange={(e) => setDebouncedInput(e.target.value)}

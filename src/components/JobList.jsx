@@ -3,8 +3,8 @@ import JobCard from "./JobCard";
 //
 const JobList = ({ jobs, setSelectedJob, appliedJobs, setAppliedJobs }) => {
 	return (
-		<div>
-			<ul>
+		<div className=" flex justify-center h-full pb-6 ">
+			<ul className=" overflow-y-auto">
 				{jobs.map((company) => (
 					<JobCard
 						key={company.companyId}

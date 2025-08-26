@@ -1,21 +1,16 @@
-import Filters from "./Filters";
 import JobList from "./JobList";
 
 const JobsPannel = ({
 	jobs,
-	filters,
-	setFilters,
 	selectedJob,
 	setSelectedJob,
 	appliedJobs,
 	setAppliedJobs,
 }) => {
 	return (
-		<div>
-			<Filters filters={filters} setFilters={setFilters} />
+		<div className=" bg-white px-0.5 pt-3 pb-16 rounded-xl shadow-2xl h-[calc(100svh-210px)] overflow-y-hidden">
 			<JobList
 				jobs={jobs}
-				filters={filters}
 				selectedJob={selectedJob}
 				setSelectedJob={setSelectedJob}
 				appliedJobs={appliedJobs}
