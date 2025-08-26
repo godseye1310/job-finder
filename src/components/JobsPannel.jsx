@@ -7,8 +7,8 @@ const JobsPannel = ({
 	setFilters,
 	selectedJob,
 	setSelectedJob,
-	contactedJobs,
-	setContactedJobs,
+	appliedJobs,
+	setAppliedJobs,
 }) => {
 	return (
 		<div>
@@ -18,8 +18,8 @@ const JobsPannel = ({
 				filters={filters}
 				selectedJob={selectedJob}
 				setSelectedJob={setSelectedJob}
-				contactedJobs={contactedJobs}
-				setContactedJobs={setContactedJobs}
+				appliedJobs={appliedJobs}
+				setAppliedJobs={setAppliedJobs}
 			/>
 		</div>
 	);

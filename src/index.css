@@ -39,14 +39,18 @@
 	.input-field {
 		@apply border-2 px-1 py-1.5 rounded-lg text-neutral-900 text-lg font-medium border-gray-300 bg-neutral-100 focus:bg-indigo-100 text-center focus:outline-none focus:border-indigo-400;
 	}
-	.btn-submit {
-		@apply px-9 py-3 border-none text-white rounded-3xl text-base cursor-pointer;
-		background: linear-gradient(45deg, #667eea, #764ba2);
-		transition: transform 0.2s, box-shadow 0.2s;
+	.cbtn {
+		@apply px-6 py-2 w-fit border-none text-white rounded-xl text-base cursor-pointer bg-gradient-to-l from-indigo-500 to-indigo-500;
+		transition: transform 0.5s, box-shadow 0.2s;
 	}
-	.btn-submit:hover {
+	.cbtn:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+	}
+
+	.cbtn:disabled {
+		transform: translateY(0px);
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0);
 	}
 
 	.app-heading {

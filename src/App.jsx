@@ -11,9 +11,11 @@ function App() {
 		industry: "",
 	});
 	const [selectedJob, setSelectedJob] = useState(null);
-	const [contactedJobs, setContactedJobs] = useState([]);
+	const [appliedJobs, setAppliedJobs] = useState([]);
 
-	console.log(filters.search);
+	// console.log(filters.search);
+	// console.log(appliedJobs);
+	// console.log(selectedJob);
 
 	const filteredJobs = jobs.filter((job) => {
 		return (
@@ -42,8 +44,8 @@ function App() {
 						setFilters={setFilters}
 						selectedJob={selectedJob}
 						setSelectedJob={setSelectedJob}
-						contactedJobs={contactedJobs}
-						setContactedJobs={setContactedJobs}
+						appliedJobs={appliedJobs}
+						setAppliedJobs={setAppliedJobs}
 					/>
 				</section>
 
