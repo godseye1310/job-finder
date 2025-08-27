@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 
-const Filters = ({ setFilters }) => {
+const Filters = ({ setFilters, setSelectedJob }) => {
 	const [debouncedInput, setDebouncedInput] = useState("");
 
 	useEffect(() => {
 		let timeID = setTimeout(() => {
 			setFilters((prev) => ({ ...prev, search: debouncedInput }));
+			setSelectedJob(null);
 		}, 1000);
 
 		return () => {
 			clearTimeout(timeID);
 		};
-	}, [debouncedInput, setFilters]);
+	}, [debouncedInput, setFilters, setSelectedJob]);
 
 	return (
 		<div className="pt-8 pb-2 w-full flex justify-center">

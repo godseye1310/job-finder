@@ -36,7 +36,11 @@ function App() {
 			</div>
 
 			<div className="container mx-auto">
-				<Filters filters={filters} setFilters={setFilters} />
+				<Filters
+					filters={filters}
+					setFilters={setFilters}
+					setSelectedJob={setSelectedJob}
+				/>
 				<div className="mt-5 flex justify-center gap-5">
 					<section className="w-1/2">
 						<JobsPannel
@@ -48,7 +52,7 @@ function App() {
 						/>
 					</section>
 
-					<section className="w-1/2">
+					<section className="w-2/3">
 						<MapView
 							jobs={filteredJobs}
 							selectedJob={selectedJob}
