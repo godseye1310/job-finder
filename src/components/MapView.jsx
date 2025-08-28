@@ -1,5 +1,5 @@
 // import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
 	MapContainer,
 	Marker,
@@ -39,30 +39,37 @@ const selectedIcon = L.icon({
 	popupAnchor: [1, -34],
 });
 
-function SetSelectedJobView({ selectedJobId, selectedJobMarker }) {
+function SelectedJobsView({
+	selectedJobId,
+	selectedJobMarker,
+	stateCoordinates,
+}) {
 	const map = useMap();
 
 	useEffect(() => {
 		if (selectedJobId && selectedJobMarker) {
 			// map.setView(selectedJobMarker, 10);
 			map.flyTo(selectedJobMarker, 10);
+		} else if (stateCoordinates) {
+			map.flyTo(stateCoordinates, 6);
 		} else if (!selectedJobId) {
 			map.flyTo([-24.099, 134.1816], 5);
 		}
 
 		// [selectedJob.latitude, selectedJob.longitude]
-	}, [selectedJobId, selectedJobMarker, map]);
+	}, [selectedJobId, selectedJobMarker, map, stateCoordinates]);
 }
 
 const MapView = ({
 	jobs,
 	selectedJob,
 	setSelectedJob,
-	statefilters,
+	statefilter,
 	appliedJobs,
 }) => {
 	// console.log(jobs);
 	// console.log(selectedJob);
+	console.log(statefilter);
 
 	let selectedJobId = null;
 	let selectedJobMarker = [-24.099, 134.1816];
@@ -71,6 +78,19 @@ const MapView = ({
 		selectedJobMarker = [latitude, longitude];
 		selectedJobId = companyId;
 	}
+
+	let length = jobs.length;
+	let x = jobs.reduce(
+		(acc, currJob) => {
+			acc[0] += currJob.latitude;
+			acc[1] += currJob.longitude;
+			return acc;
+		},
+		[0, 0]
+	);
+	// console.log(x);
+	const stateCoordinates = [x[0] / length, x[1] / length];
+	console.log(stateCoordinates);
 
 	//
 	return (
@@ -87,9 +107,10 @@ const MapView = ({
 						url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 					/>
 
-					<SetSelectedJobView
+					<SelectedJobsView
 						selectedJobId={selectedJobId}
 						selectedJobMarker={selectedJobMarker}
+						stateCoordinates={statefilter ? stateCoordinates : null}
 					/>
 
 					{jobs.map((job) => {
