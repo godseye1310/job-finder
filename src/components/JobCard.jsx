@@ -15,7 +15,7 @@ const JobCard = ({ company, setSelectedJob, appliedJobs, setAppliedJobs }) => {
 	return (
 		<li
 			className={`my-1 max-w-[600px] border border-indigo-600 rounded-sm p-3 ${
-				isApplied ? "bg-green-200" : ""
+				isApplied ? "bg-green-300" : "bg-white"
 			}`}
 			onClick={() => setSelectedJob(company)}
 		>
@@ -40,7 +40,7 @@ const JobCard = ({ company, setSelectedJob, appliedJobs, setAppliedJobs }) => {
 						</p>
 					</div>
 				</div>
-				<div className="flex justify-between items-end">
+				<div className="flex justify-between flex-wrap items-end">
 					<div>
 						<p className="text-sm text-neutral-600">
 							{company.email}

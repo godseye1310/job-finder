@@ -8,7 +8,7 @@ const JobsPannel = ({
 	setAppliedJobs,
 }) => {
 	return (
-		<div className=" bg-white px-0.5 pt-3 pb-16 rounded-xl shadow-2xl h-[calc(100svh-210px)] overflow-y-hidden">
+		<div className=" bg-indigo-600 px-0.5 pt-3 pb-1 rounded-xl shadow-2xl h-[calc(100svh-210px)] overflow-y-hidden">
 			<JobList
 				jobs={jobs}
 				selectedJob={selectedJob}
