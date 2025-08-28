@@ -1,5 +1,9 @@
 // import React from "react";
 
+import { BiSolidPhoneCall } from "react-icons/bi";
+import { IoMdMail } from "react-icons/io";
+import { MdLocationPin } from "react-icons/md";
+
 const JobCard = ({ company, setSelectedJob, appliedJobs, setAppliedJobs }) => {
 	const isApplied = appliedJobs.includes(company.companyId);
 	// console.log(isApplied);
@@ -14,7 +18,7 @@ const JobCard = ({ company, setSelectedJob, appliedJobs, setAppliedJobs }) => {
 
 	return (
 		<li
-			className={`my-1 max-w-[600px] border border-indigo-600 rounded-sm p-3 ${
+			className={`my-1 max-w-[600px] border hover:card-shadow border-indigo-600 rounded-sm p-3 ${
 				isApplied ? "bg-green-300" : "bg-white"
 			}`}
 			onClick={() => setSelectedJob(company)}
@@ -35,24 +39,43 @@ const JobCard = ({ company, setSelectedJob, appliedJobs, setAppliedJobs }) => {
 					</div>
 
 					<div className="w-1/3 flex justify-end">
-						<p className="w-fit text-base text-neutral-600 text-end font-bold px-3 py-1 bg-accent rounded-3xl">
+						<p className=" w-fit text-base text-white text-left font-bold px-3 py-1 bg-accent rounded-3xl ">
 							{company.industry}
 						</p>
 					</div>
 				</div>
-				<div className="flex justify-between flex-wrap items-end">
-					<div>
-						<p className="text-sm text-neutral-600">
-							{company.email}
+				<div className="flex justify-between flex-wrap items-end  gap-3">
+					<div className="">
+						<p className="text-sm">
+							<a
+								href={`mailto:${company.email}`}
+								className="text-blue-600 hover:underline inline-flex items-center gap-1.5 "
+							>
+								<span>
+									<IoMdMail />
+								</span>
+								{company.email}
+							</a>
 						</p>
-						<p className="text-sm text-neutral-600">
-							{company.phoneNumber}
+						<p className="text-sm">
+							<a
+								href={`tel:${company.phoneNumber}`}
+								className="text-blue-600 font-semibold hover:underline inline-flex items-center gap-1.5"
+							>
+								<span>
+									<BiSolidPhoneCall />
+								</span>
+								{company.phoneNumber}
+							</a>
 						</p>
-						<p className="text-sm text-neutral-600">
-							{company.address}
+						<p className="text-sm ">
+							<span className="text-blue-600 inline-flex items-center gap-1.5">
+								<MdLocationPin className="" />
+								{company.address}
+							</span>
 						</p>
 					</div>
-					<div>
+					<div className="">
 						<button
 							className="cbtn disabled:opacity-50 disabled:cursor-auto"
 							type="button"

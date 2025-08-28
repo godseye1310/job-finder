@@ -11,7 +11,7 @@
 
 	--background: oklch(30 0 0);
 	--foreground: oklch(0.145 0 0);
-	--bg-accent: #ffe8f0;
+	--bg-accent: #2b7fff;
 }
 
 @theme inline {
@@ -59,8 +59,9 @@
 		transform: translateY(0px);
 		box-shadow: 0 10px 20px rgba(0, 0, 0, 0);
 	}
+}
 
-	.app-heading {
-		@apply text-5xl w-fit mx-auto bg-gradient-to-r from-emerald-500 via-amber-500 to-rose-500 bg-clip-text text-transparent font-bold  m-5 p-5 max-sm:text-4xl max-sm:mt-3 max-sm:mb-3 max-sm:p-3;
-	}
+@utility card-shadow {
+	box-shadow: inset -9px -12px 36px -16px #151515;
+	transition: box-shadow 0.3s ease-in-out;
 }

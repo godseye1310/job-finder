@@ -3,6 +3,7 @@ import companies from "./data/companies.json";
 import JobsPannel from "./components/JobsPannel";
 import MapView from "./components/MapView";
 import Filters from "./components/Filters";
+import { FaMapLocationDot } from "react-icons/fa6";
 
 function App() {
 	const jobs = companies;
@@ -46,7 +47,12 @@ function App() {
 	return (
 		<>
 			<div className="text-center bg-indigo-600 py-5 mb-1">
-				<h1 className="text-white text-5xl font-bold">Job Finder</h1>
+				<h1 className="text-white text-5xl font-bold inline-flex items-center gap-3">
+					<span>
+						<FaMapLocationDot />
+					</span>
+					Job Explorer
+				</h1>
 			</div>
 
 			<div className="mx-auto px-5">
